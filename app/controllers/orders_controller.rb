@@ -2,6 +2,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    raise @order.inspect
+    # select image, name, description, line_items.quantity, total_price_cents from line_items 
+    # join products on products.id = product_id
+    # where order_id = 1;
+    
   end
 
   def create

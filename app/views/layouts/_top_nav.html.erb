@@ -25,6 +25,11 @@
             <% end %>
           </ul>
         </li>
+        <li>
+          <%= link_to 'About Us', :about %>       
+          <!-- since about page is just a single string, not with id, so don't have to use [:about]' -->
+          <!-- <%= link_to 'About Us', about_path %>      also works -->
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
        <li class="dropdown">

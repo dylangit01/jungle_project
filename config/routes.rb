@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
+  # These routes for orders controller that can be secure later. 
+  get '/show' => 'orders#show'
+  get '/create' => 'orders#create'
+
   # these routes are for showing users a login form, logging them in, and logging them out.
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

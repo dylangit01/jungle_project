@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
 
+  # Add a before_filter to any controller that you want to secure. This will force user's to login before they can see the actions in this controller. The routes for this controller were added to the routes.rb in the beginning of this tutorial.
+  before_filter :authorize
+
   def show
     @order = Order.find(params[:id])
   end
@@ -15,7 +18,7 @@ class OrdersController < ApplicationController
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
 
-  rescue Stripe::CardError => e
+    rescue Stripe::CardError => e
     redirect_to cart_path, flash: { error: e.message }
   end
 

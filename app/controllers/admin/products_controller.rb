@@ -4,6 +4,7 @@ class Admin::ProductsController < Admin::BaseAdminController
     @products = Product.order(id: :desc).all
   end
 
+  # for display the adding view:
   def new
     @product = Product.new
   end

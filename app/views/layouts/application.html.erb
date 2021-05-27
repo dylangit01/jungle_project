@@ -15,6 +15,12 @@
   <!-- <%= flash[:error]  %>  -->
 
   <main class="container">
+    <% if active_sale? %> 
+      <p class="alert alert-info">
+        There's an active <%= 'Summer' %> sale going on! 
+        <strong>Everything is <%= 25 %>% off! </strong> 
+        </p>
+    <% end %> 
     <%= yield %>
   </main>
 

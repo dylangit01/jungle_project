@@ -30,6 +30,13 @@ RSpec.describe User, type: :model do
       expect(user.errors.full_messages).to include ("Email can't be blank")
     end
 
+    it "is not valid when email format is not correct" do
+      user.email = 'john@testcom'
+      user.save
+      expect(user).to_not be_valid
+      expect(user.errors.full_messages).to include ("Email is invalid")
+    end
+
     it "is not valid without pasword" do
       user.password = nil
       user.save
